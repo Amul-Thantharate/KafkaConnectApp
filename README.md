@@ -58,8 +58,8 @@ A scalable, real-time chat application built with modern technologies:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd kafka-chat-app
+   git clone https://github.com/Amul-Thantharate/KafkaConnectApp.git
+   cd KafkaConnectApp
    ```
 
 2. **Start the infrastructure**
