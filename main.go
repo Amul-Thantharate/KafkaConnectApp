@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/Amul-Thantharate/kafka-chat-app/database"
-	"github.com/Amul-Thantharate/kafka-chat-app/kafka"
-	"github.com/Amul-Thantharate/kafka-chat-app/server"
+	"github.com/Amul-Thantharate/KafkaConnect/database"
+	"github.com/Amul-Thantharate/KafkaConnect/kafka"
+	"github.com/Amul-Thantharate/KafkaConnect/server"
 )
 
 func main() {

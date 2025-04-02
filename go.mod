@@ -1,4 +1,4 @@
-module github.com/Amul-Thantharate/kafka-chat-app
+module github.com/Amul-Thantharate/KafkaConnect
 
 go 1.24.1
 

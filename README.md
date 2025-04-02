@@ -1,4 +1,5 @@
-# 💬 Kafka Chat Application
+# 💬 KafkaConnect Chat Application 📚
+
 [![Go Version](https://img.shields.io/badge/Go-1.16+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0+-00758F?style=flat&logo=mysql)](https://www.mysql.com/)
 [![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-3.0+-231F20?style=flat&logo=apache-kafka)](https://kafka.apache.org/)

@@ -6,9 +6,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/Amul-Thantharate/kafka-chat-app/kafka"
+	"github.com/Amul-Thantharate/KafkaConnect/kafka"
 
-	"github.com/Amul-Thantharate/kafka-chat-app/database"
+	"github.com/Amul-Thantharate/KafkaConnect/database"
 
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
@@ -123,10 +123,10 @@ func logoutUser(conn net.Conn) {
 		var user database.User
 		database.DB.Where("username = ?", username).First(&user)
 		database.DB.Model(&user).Update("online", false)
-		
+
 		// Remove from clients map
 		delete(clients, conn)
-		
+
 		// Broadcast that user has left after updating status
 		broadcastSystemMessage(fmt.Sprintf("🔴 %s has left the chat", username))
 	}
@@ -230,7 +230,7 @@ func broadcastMessage(conn net.Conn, parts []string) {
 
 func broadcastSystemMessage(message string) {
 	systemMessage := fmt.Sprintf("🔔 System: %s\n", message)
-	
+
 	// Send to Kafka
 	kafka.SendMessage("system", systemMessage)
 
@@ -341,7 +341,7 @@ func sendGroupMessage(conn net.Conn, parts []string) {
 
 	// Check if user is member of the group
 	var member database.GroupMember
-	if err := database.DB.Where("group_id = ? AND user_id = (SELECT id FROM users WHERE username = ?)", 
+	if err := database.DB.Where("group_id = ? AND user_id = (SELECT id FROM users WHERE username = ?)",
 		group.ID, clients[conn]).First(&member).Error; err != nil {
 		conn.Write([]byte("You are not a member of this group\n"))
 		return
